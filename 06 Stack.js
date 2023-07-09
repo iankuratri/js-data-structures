@@ -1,6 +1,6 @@
 /**
 
-Stack:
+Stack: Last in First Out (LIFO)
 
 The stack data structure is a sequential collection of elements that follows the principle of Last in First Out (LIFO).
 The last element inserted into the stack is first element to be removed.
