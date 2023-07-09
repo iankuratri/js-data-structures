@@ -26,6 +26,6 @@ let arr2 = [];
 
 let fruits = ["Apple", "Orange", "Plum"];
 
-alert(fruits[0]); // Apple
-alert(fruits[1]); // Orange
-alert(fruits[2]); // Plum
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Orange
+console.log(fruits[2]); // Plum
