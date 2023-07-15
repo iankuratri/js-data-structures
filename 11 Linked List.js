@@ -102,6 +102,33 @@ class LinkedList {
     }
   }
 
+  removeFrom(index) {
+    if (index < 0 || index >= this.size) {
+      console.log("Invalid index.");
+      return null;
+    }
+
+    let removedNode;
+
+    if (index === 0) {
+      removedNode = this.head;
+      this.head = this.head.next;
+    } else {
+      let previous = this.head;
+
+      for (let i = 0; i < index - 1; i++) {
+        previous = previous.next;
+      }
+
+      removedNode = previous.next;
+      previous.next = removedNode.next;
+    }
+
+    this.size--;
+
+    return removedNode.value;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -135,5 +162,9 @@ list.append(40);
 list.print();
 
 list.insert(25, 2);
+
+list.print();
+
+console.log(list.removeFrom(2));
 
 list.print();
