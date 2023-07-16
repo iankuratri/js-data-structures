@@ -102,6 +102,7 @@ class LinkedList {
     }
   }
 
+  // O(n) - Linear time complexity
   removeFrom(index) {
     if (index < 0 || index >= this.size) {
       console.log("Invalid index.");
@@ -127,6 +128,41 @@ class LinkedList {
     this.size--;
 
     return removedNode.value;
+  }
+
+  // O(n) - Linear time complexity
+  removeValue(value) {
+    if (this.isEmpty()) {
+      console.log("List is empty.");
+      return null;
+    }
+
+    // removing node from beginning of list
+    if (this.head.value === value) {
+      this.head = this.head.next;
+
+      this.size--;
+
+      return value;
+    } else {
+      let previous = this.head;
+
+      while (previous.next && previous.next.value !== value) {
+        previous = previous.next;
+      }
+
+      if (previous.next) {
+        const removedNode = previous.next;
+        previous.next = removedNode.next;
+
+        this.size--;
+
+        return value;
+      }
+
+      console.log("Node with given value was not found.");
+      return null;
+    }
   }
 
   print() {
@@ -165,6 +201,14 @@ list.insert(25, 2);
 
 list.print();
 
-console.log(list.removeFrom(2));
+console.log("Removed from list:", list.removeFrom(2));
+
+list.print();
+
+console.log("Removed from list:", list.removeValue(40));
+
+list.print();
+
+console.log("Removed from list:", list.removeValue(30));
 
 list.print();
