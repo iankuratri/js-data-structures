@@ -165,6 +165,28 @@ class LinkedList {
     }
   }
 
+  // O(n) - Linear time complexity
+  search(value) {
+    if (this.isEmpty()) {
+      console.log("List is empty.");
+      return -1;
+    } else {
+      let index = 0;
+      let current = this.head;
+
+      while (current) {
+        if (current.value === value) {
+          return index;
+        }
+
+        current = current.next;
+        index++;
+      }
+
+      return -1;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -212,3 +234,7 @@ list.print();
 console.log("Removed from list:", list.removeValue(30));
 
 list.print();
+
+console.log("Finding 10:", list.search(10));
+
+console.log("Finding 60:", list.search(60));
