@@ -202,6 +202,20 @@ class LinkedList {
       console.log(listValue);
     }
   }
+
+  reverse() {
+    let previous = null;
+    let current = this.head;
+
+    while (current) {
+      let next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    this.head = previous;
+  }
 }
 
 const list = new LinkedList();
@@ -238,3 +252,11 @@ list.print();
 console.log("Finding 10:", list.search(10));
 
 console.log("Finding 60:", list.search(60));
+
+list.prepend(30);
+
+list.print();
+
+list.reverse();
+
+list.print();
