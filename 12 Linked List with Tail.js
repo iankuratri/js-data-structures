@@ -1,3 +1,7 @@
+/**
+ * Linked List with Tail
+ */
+
 // Linked List - Node
 class Node {
   constructor(value) {
@@ -111,26 +115,28 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList();
+module.exports = LinkedList;
 
-console.log("Is list empty?", list.isEmpty());
-console.log("List size", list.getSize());
+// const list = new LinkedList();
 
-list.print();
+// console.log("Is list empty?", list.isEmpty());
+// console.log("List size", list.getSize());
 
-list.append(1);
-list.append(2);
-list.append(3);
-list.prepend(0);
+// list.print();
 
-list.print();
+// list.append(1);
+// list.append(2);
+// list.append(3);
+// list.prepend(0);
 
-console.log("List size", list.getSize());
+// list.print();
 
-list.removeFromFront();
+// console.log("List size", list.getSize());
 
-list.print();
+// list.removeFromFront();
 
-list.removeFromEnd();
+// list.print();
 
-list.print();
+// list.removeFromEnd();
+
+// list.print();
