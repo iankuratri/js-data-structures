@@ -30,3 +30,27 @@ Usage:
 - To implement abstract data types such as lookup tables and priority queues
 
 */
+
+// Tree Node
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Tree Class
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  isEmpty() {
+    return this.root === null;
+  }
+}
+
+const bst = new BinarySearchTree();
+
+console.log("Is tree empty?", bst.isEmpty());
