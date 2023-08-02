@@ -72,6 +72,20 @@ Postorder Traversal:
 2. Visit the right subtree
 3. Read the data of the node
 
+
+Breadth First Search (BFS):
+
+Explore all nodes at the present depth prior to moving on to the nodes at the next depth level.
+
+BFS Traversal Approach:
+1. Create a queue
+2. Enqueue the root node
+3. As long as a node exists in the queue
+  a. Dequeue the node from the front
+  b. Read the node's value
+  c. Enqueue the node's left child if it exists
+  d. Enqueue the node's right child if it exists
+
 */
 
 // Tree Node
@@ -154,6 +168,26 @@ class BinarySearchTree {
       console.log(root.value);
     }
   }
+
+  levelOrder() {
+    // use the optimized queue implementation here
+    const queue = [];
+
+    queue.push(this.root);
+
+    while (queue.length) {
+      let curr = queue.shift();
+      console.log(curr.value);
+
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -171,4 +205,8 @@ console.log("Is 5 present?", bst.search(bst.root, 5));
 console.log("Is 15 present?", bst.search(bst.root, 15));
 console.log("Is 20 present?", bst.search(bst.root, 20));
 
-bst.postOrder(bst.root);
+// bst.preOrder(bst.root);
+// bst.inOrder(bst.root);
+// bst.postOrder(bst.root);
+
+bst.levelOrder(bst.root);
