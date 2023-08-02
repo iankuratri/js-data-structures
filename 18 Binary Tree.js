@@ -188,6 +188,22 @@ class BinarySearchTree {
       }
     }
   }
+
+  min(root) {
+    if (!root.left) {
+      return root.value;
+    } else {
+      return this.min(root.left);
+    }
+  }
+
+  max(root) {
+    if (!root.right) {
+      return root.value;
+    } else {
+      return this.max(root.right);
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -210,3 +226,6 @@ console.log("Is 20 present?", bst.search(bst.root, 20));
 // bst.postOrder(bst.root);
 
 bst.levelOrder(bst.root);
+
+console.log("Min node:", bst.min(bst.root));
+console.log("Max node:", bst.max(bst.root));
