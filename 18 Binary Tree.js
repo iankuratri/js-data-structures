@@ -204,6 +204,33 @@ class BinarySearchTree {
       return this.max(root.right);
     }
   }
+
+  delete(value) {
+    this.root = this.deleteNode(this.root, value);
+  }
+
+  deleteNode(root, value) {
+    if (root === null) {
+      return root;
+    }
+    if (value < root.value) {
+      root.left = this.deleteNode(root.left, value);
+    } else if (value > root.value) {
+      root.right = this.deleteNode(root.right, value);
+    } else {
+      if (!root.left && !root.right) {
+        return null;
+      }
+      if (!root.left) {
+        return root.right;
+      } else if (!root.right) {
+        return root.left;
+      }
+      root.value = this.min(root.right);
+      root.right = this.deleteNode(root.right, root.value);
+    }
+    return root;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -214,18 +241,30 @@ bst.insert(10);
 bst.insert(5);
 bst.insert(15);
 bst.insert(3);
-bst.insert(7);
+// bst.insert(7);
 
-console.log("Is 10 present?", bst.search(bst.root, 10));
-console.log("Is 5 present?", bst.search(bst.root, 5));
-console.log("Is 15 present?", bst.search(bst.root, 15));
-console.log("Is 20 present?", bst.search(bst.root, 20));
+// console.log("Is 10 present?", bst.search(bst.root, 10));
+// console.log("Is 5 present?", bst.search(bst.root, 5));
+// console.log("Is 15 present?", bst.search(bst.root, 15));
+// console.log("Is 20 present?", bst.search(bst.root, 20));
 
 // bst.preOrder(bst.root);
 // bst.inOrder(bst.root);
 // bst.postOrder(bst.root);
 
-bst.levelOrder(bst.root);
+// bst.levelOrder(bst.root);
 
-console.log("Min node:", bst.min(bst.root));
-console.log("Max node:", bst.max(bst.root));
+// console.log("Min node:", bst.min(bst.root));
+// console.log("Max node:", bst.max(bst.root));
+
+bst.levelOrder();
+
+console.log("Deleting 15...");
+bst.delete(15);
+
+bst.levelOrder();
+
+console.log("Deleting 10...");
+bst.delete(10);
+
+bst.levelOrder();
