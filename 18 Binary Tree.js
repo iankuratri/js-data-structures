@@ -97,7 +97,7 @@ bst.insert(10);
 bst.insert(5);
 bst.insert(15);
 
-console.log(bst.search(10));
-console.log(bst.search(5));
-console.log(bst.search(15));
-console.log(bst.search(20));
+console.log("Is 10 present?", bst.search(bst.root, 10));
+console.log("Is 5 present?", bst.search(bst.root, 5));
+console.log("Is 15 present?", bst.search(bst.root, 15));
+console.log("Is 20 present?", bst.search(bst.root, 20));
