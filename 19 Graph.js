@@ -37,3 +37,14 @@ If the value of any element say, matrix[i][j] is 1, it represents that
 there is an edge connecting vertex i and vertex j
 
 */
+
+// Adjacency Matrix
+const matrix = [
+  [0, 1, 0],
+  [1, 0, 1],
+  [0, 1, 0],
+];
+
+console.log("A is connected to A?", matrix[0][0]);
+console.log("A is connected to B?", matrix[0][1]);
+console.log("A is connected to C?", matrix[0][2]);
